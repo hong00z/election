@@ -1,4 +1,4 @@
-pragma solidity ^0.4.25;
+pragma solidity >=0.4.22;
 
 contract Election {
 
@@ -7,11 +7,13 @@ contract Election {
         uint id;
         string name;
         uint voteCount;
-    }//구조체.. 응원수는 어떻게 집계할까 고민,,,
+        //응원수 추가하기
+    }
 
-    //Store Candidate
+    //Store Candidates
     //Fetch Candidate
     mapping(uint => Candidate) public candidates;
+
     //Store Candidates Count
     uint public candidatesCount;
 
@@ -19,10 +21,9 @@ contract Election {
     constructor () public {
         addCandidate("Candidate 1");
         addCandidate("Candidate 2");
-        //candidate = "Candidate 1";
     }
 
-    function addCandidate (string memory _name) private {
+    function addCandidate (string _name) private {
         candidatesCount ++;
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
