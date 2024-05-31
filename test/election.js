@@ -36,6 +36,9 @@ contract("Election", function(accounts) {
           candidateId = 1;                                      //candidateId 선언
           return electionInstance.vote(candidateId, { from: accounts[0] }); //선택한 후보 번호, 유권자 계정 정보를 전달
         }).then(function(receipt) {
+          assert.equal(receipt.logs.length, 1, "an event was triggered");                                         //한 줄 이상의 로그가 발생했는지 확인
+          assert.equal(receipt.logs[0].event, "votedEvent", "the event type is correct");                         //로그의 event가 votedEvent인지 확인
+          assert.equal(receipt.logs[0].args._candidateId.toNumber(), candidateId, "the candidate id is correct"); //event arg에 후보자 번호를 갖고있는지 확인 
           return electionInstance.voters(accounts[0]);
         }).then(function(voted) {
           assert(voted, "the voter was marked as voted");

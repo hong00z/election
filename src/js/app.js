@@ -28,7 +28,9 @@ App = {
       App.contracts.Election = TruffleContract(election);
       // Connect provider to interact with contract
       App.contracts.Election.setProvider(App.web3Provider);
-      App.listenForEvents();
+      // Call function(listenForEvents)
+      App.listenForEvents();  
+
       return App.render();
     });
   },
@@ -40,7 +42,7 @@ App = {
       // This is a known issue with Metamask
       // https://github.com/MetaMask/metamask-extension/issues/2393
       instance.votedEvent({}, {
-        fromBlock: 0,
+        fromBlock: 0,     //메타데이터 전달(가장 첫 블럭부터 최근 블럭까지)
         toBlock: 'latest'
       }).watch(function(error, event) {
         console.log("event triggered", event)
@@ -62,7 +64,7 @@ App = {
     web3.eth.getCoinbase(function(err, account) {
       if (err === null) {
         App.account = account;
-        $("#accountAddress").html("Your Account: " + account);
+        $("#accountAddress").html("현재 지갑 주소: " + account);
       }
     });
 

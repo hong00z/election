@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT 
 pragma solidity >=0.4.22;
 
 contract Election {
@@ -19,6 +20,10 @@ contract Election {
     //Store Candidates Count
     uint public candidatesCount;
 
+    //voted event
+    event votedEvent (
+        uint indexed _candidateId 
+    );
 
     constructor () public {
         addCandidate("Candidate 1");
@@ -44,5 +49,8 @@ contract Election {
         candidates[_candidateId].voteCount ++;
 
         //전체투표율 증가
+
+        //trigger voted event
+        emit votedEvent(_candidateId);
     }
 }

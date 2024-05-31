@@ -21,19 +21,19 @@
     <div class="container" style="width: 650px;">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="text-center">Election Results</h1>           <!--제목-->
+          <h1 class="text-center">선거1</h1>           <!--제목-->
           <hr/>
           <br/>
           <div id="loader">                                       <!--대기 문구(function call이 비동기적이라서 필요함)-->
-            <p class="text-center">Loading...</p>
+            <p class="text-center">로딩중...</p>
           </div>
           <div id="content" style="display: none;">               <!--내용-->
             <table class="table">                                 <!--내용) 후보 목록-->
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Votes</th>
+                  <th scope="col">번호</th>
+                  <th scope="col">이름</th>
+                  <th scope="col">득표수</th>
                 </tr>
               </thead>
               <tbody id="candidatesResults">
@@ -42,11 +42,11 @@
             <hr/>
             <form onSubmit="App.castVote(); return false;">       <!--투표할 수 있는 폼-->
               <div class="form-group">
-                <label for="candidatesSelect">Select Candidate</label>
+                <label for="candidatesSelect">원하는 후보를 선택해주세요</label>
                 <select class="form-control" id="candidatesSelect"> <!--후보 선택 창...?-->
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Vote</button>
+              <button type="submit" class="btn btn-primary">투표하기</button>
               <hr />
             </form>
             <p id="accountAddress" class="text-center"></p>       <!--내용) 앱과 연결된 현재 계정의 지갑주소-->
