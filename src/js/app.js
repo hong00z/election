@@ -92,7 +92,7 @@ class App extends React.Component {
     return (
       <div class='row'>
         <div class='col-lg-12 text-center' >
-          <h1>Election Results</h1>
+          <h1>선거1</h1>
           <br/>
           { this.state.loading || this.state.voting //화면 로딩 또는 투표 중이면
             ? <p class='text-center'>로딩중...</p>

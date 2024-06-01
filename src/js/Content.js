@@ -12,7 +12,7 @@ class Content extends React.Component {
           <Form candidates={this.props.candidates} castVote={this.props.castVote} /> //투표 안했으면 폼 보여줌
           : null                                                                     //투표 했으면 안보여줌
         }
-        <p>현재 접속한 계정 주소: {this.props.account}</p>
+        <p>현재 계정 주소: {this.props.account}</p>
       </div>
     )
   }
