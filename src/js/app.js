@@ -1,17 +1,17 @@
-//node.js에서 제공하는 라이브러리 
+//node_modules에서 제공하는 라이브러리 
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Web3 from 'web3'
 import TruffleContract from 'truffle-contract'
 
-import Election from '../../build/contracts/Election.json' // <reading Election.json 파일>
+import Election from '../../build/contracts/Election.json' // < Election.json 파일 읽기>
 import Content from './Content'
 import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends React.Component {
 
   constructor(props) {
-    //componetn state 사용 (to manage our app state)
+    //component state 사용 (to manage our app state)
     super(props)
     this.state = {
       account: '0x0',
@@ -90,18 +90,32 @@ class App extends React.Component {
   //everytime the state changes react rerenders
   render() {
     return (
-      <div class='row'>
+      <div class= 'row justify-content-center align-items-center' style={{ minHeight: '100vh' }}>
         <div class='col-lg-12 text-center' >
-          <h1>선거1</h1>
-          <br/>
-          { this.state.loading || this.state.voting //화면 로딩 또는 투표 중이면
-            ? <p class='text-center'>로딩중...</p>
-            : <Content                              //로딩중이 아니면
+        <h1>선거1</h1>
+        <br/> 
+        { this.state.loading 
+            ? (
+              <div className="text-center">
+                  <p>로딩중...</p>
+                  <p>메타마스크의 계정과 네트워크 연결 상태를 확인해주세요.</p>
+              </div>
+            )
+            : this.state.voting
+              ? (
+                <div className="text-center">
+                    <p>투표중...</p>
+                    <p>가스 비용 컨펌 후 페이지를 새로 고침해주세요.</p>
+                    <p>투표 취소를 원하면 페이지를 새로 고침해주세요.</p>
+                </div>
+              )
+              : <Content
                 account={this.state.account}
                 candidates={this.state.candidates}
                 hasVoted={this.state.hasVoted}
                 castVote={this.castVote} />
-          }
+}
+
         </div>
       </div>
     )

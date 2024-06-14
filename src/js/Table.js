@@ -8,7 +8,7 @@ class Table extends React.Component {
           <tr>
             <th>번호</th>
             <th>이름</th>
-            <th>투표수</th>
+            <th>득표수</th>
           </tr>
         </thead>
         <tbody >
