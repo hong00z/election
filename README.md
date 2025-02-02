@@ -1,4 +1,4 @@
-# Votetherum
+# Votethereum
 ![image](https://github.com/user-attachments/assets/d93bd6ed-a163-46c0-b2aa-d76cdb405d5d)
 
 블록체인과 DApp을 적용한 전자 투표 시스템
